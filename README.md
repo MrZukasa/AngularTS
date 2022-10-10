@@ -191,3 +191,39 @@ Il file tsconfig.json posso modificarlo per includere o escludere della roba da 
 ]
 ```
 caso in cui si usi nodejs, va specificato nell exclude di essere escluso.
+
+Per agevolarci nel debug possiamo anche abilitare il file di sourcemap, basta scommentare la parte relativa del file `tsconfig.json`.
+
+Per strutturare il progetto in maniera più normale è utile scommentare la voce `"rootDir": ""` e magari aggiungere la cartella che si è creata, cosi facendo compilerà e controllerà che i file siano sempre dentro la cartella specificata.
+
+Solitamente la cartella di compilazione e diversa da quella di distribute, per specificare queste differenze si usa la voce `"outDir":"./dist"`.
+Cosi facendo si mantiene la struttura delle cartelle e si hanno i file JS direttamente nella cartella che ospiterà la distribute.
+
+<hr>
+
+### Classi in TS 🌰
+Questa parte di codice si trova in [classi.ts](classi.ts).
+
+I modificatori `Private`, `Protected` e `Public` funzionano come in ogni linguaggio Microsoft e sono stati aggiunti anche qui.
+
+Public => lo chiamo da ovunque
+
+Private => lo chiamo solo dalla stessa classe
+
+Protected => lo chiamo anche dalla classe ereditaria
+
+In TS è possibile dichiarare le proprietà di una classe direttamente nel costruttore, proprietà più addirittura il modificatore:
+```Typescript
+class Persona{
+  contrrutor(private nome: string, private cognome: string){}
+}
+```
+>In Angular si usa un botto questa roba!!
+
+Esiste anche il modificatore `readonly`.
+
+Con `Static` posso chiamare un metodo o una proprietà senza chiamare la classe che lo contiente.
+
+Si aggiunge il concetto di `Abstract` ossia una classe che non è istanziabile ma è ereditabile.
+
+Il `singleton` identifica una classe per la quale è possibile dichiararne una singola istanza, vedere esempio nel codice.
