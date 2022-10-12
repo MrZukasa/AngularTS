@@ -1,5 +1,7 @@
 "use strict";
 class Persona {
+    nome;
+    cognome;
     //Chiaramente non ha senso iniziallizzare i valori dentro la classe,
     //altrimenti tutte le istanze saranno uguali, per questo usiamo un costruttore
     constructor(nome, cognome) {
@@ -27,6 +29,9 @@ class Studente extends Persona {
 const studente1 = new Studente('Luca', 'Rossi', 'Matematica');
 //singleton
 class Preside {
+    nome;
+    cognome;
+    static instance;
     constructor(nome, cognome) {
         this.nome = nome;
         this.cognome = cognome;

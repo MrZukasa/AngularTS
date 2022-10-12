@@ -202,7 +202,7 @@ Cosi facendo si mantiene la struttura delle cartelle e si hanno i file JS dirett
 <hr>
 
 ### Classi in TS 🌰
-Questa parte di codice si trova in [classi.ts](classi.ts).
+Questa parte di codice si trova in [classi.ts](./src/classi.ts).
 
 I modificatori `Private`, `Protected` e `Public` funzionano come in ogni linguaggio Microsoft e sono stati aggiunti anche qui.
 
@@ -227,3 +227,56 @@ Con `Static` posso chiamare un metodo o una proprietà senza chiamare la classe 
 Si aggiunge il concetto di `Abstract` ossia una classe che non è istanziabile ma è ereditabile.
 
 Il `singleton` identifica una classe per la quale è possibile dichiararne una singola istanza, vedere esempio nel codice.
+
+<hr>
+
+### Interfacce 🌃
+Tutte le info sulle interfacce sono presenti in [interface.ts](src/interface.ts).
+
+Nelle interfacce i metodi e le proprietà sono tutti astratti e solitamente si usano per essere implementate nelle classi.
+
+Posso implementare più interfacce nella stessa classe.
+Posso estendere più interfacce nella stessa interfaccia o classe.
+
+<hr>
+
+### Generics 🦃
+
+Conquesto strumento posso creare componenti riutilizzabili (?) roba che viene usata in Angular.
+
+Esempio di codice in [Generics](src/generics.ts)
+Posso creare anche generics di diversi tipi usando le union ad esempio
+`function funzione<T extends number | string>`.
+
+<hr>
+
+### Decorators 🛺
+Sono funzioni che si applicano all'interno di una classe con il carattere @ prima del nome per richiamarla.
+per esempio:
+```typescript
+function Logger(constructor: any){
+  console.log(constructor)
+}
+
+@Logger
+class Prova{
+  construcotr(){
+    console.log('Oggetto di prova')
+  }
+}
+```
+cosi facendo scriverò nella console il codice contenuto nella classe Prova anche senza averne creato un istanza.
+
+>Nel senso scriverà in console proprio il codice sorgente
+
+Posso usare anche i Decorators in factories ossia un Decorator che richiama una funzione al suo interno in maniera che passi come parametro del Decorator stesso, cosi da poterlo customizzare per ogni utilizzo.
+Esempio in [Decorator](src/decorator.ts).
+
+I Decorators di Angular chiaramente funzionano con i Template, esempio nel sorgente [App](src/app.ts) e in index.html.
+
+<hr>
+
+### Import File 🛕
+Per importare altri file in TS si fa come in [Functions](src/functions.ts)
+
+>banalmente export e import stile react
